@@ -29,8 +29,8 @@ using namespace DirectX;
 using namespace DirectX::PackedVector;
 using namespace Microsoft::WRL;
 
-#include <DirectTex/DirectXTex.h>
-#include <DirectTex/DirectXTex.inl>
+#include <DirectXTex/DirectXTex.h>
+#include <DirectXTex/DirectXTex.inl>
 
 // °¢Á¾ lib
 #pragma comment(lib, "d3d12")
@@ -108,9 +108,9 @@ struct Transform
 	Vec4 offset;
 };
 
-#define DEVICE			GEngine->GetDevice()->GetDevice()
-#define CMD_LIST		GEngine->GetCmdQueue()->GetCmdList()
+#define DEVICE				GEngine->GetDevice()->GetDevice()
+#define CMD_LIST			GEngine->GetCmdQueue()->GetCmdList()
 #define RESOURCE_CMD_LIST	GEngine->GetCmdQueue()->GetResourceCmdList()
-#define ROOT_SIGNATURE	GEngine->GetRootSignature()->GetSignature()
+#define ROOT_SIGNATURE		GEngine->GetRootSignature()->GetSignature()
 
 extern unique_ptr<class Engine> GEngine;

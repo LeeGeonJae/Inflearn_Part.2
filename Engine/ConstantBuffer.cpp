@@ -45,8 +45,8 @@ void ConstantBuffer::CreateBuffer()
 		IID_PPV_ARGS(&_cbvBuffer));
 
 	_cbvBuffer->Map(0, nullptr, reinterpret_cast<void**>(&_mappedBuffer));
-	// 리소스 작업이 완료될 때까지 매핑을 해제할 필요가 없습니다. 
-	// 그러나 GPU가 사용하는 동안에는 리소스에 기록하면 안 됩니다(따라서 동기화 기술을 사용해야 합니다).
+	// We do not need to unmap until we are done with the resource.  However, we must not write to
+	// the resource while it is in use by the GPU (so we must use synchronization techniques).
 }
 
 void ConstantBuffer::CreateView()
@@ -84,7 +84,7 @@ D3D12_CPU_DESCRIPTOR_HANDLE ConstantBuffer::PushData(int32 rootParamIndex, void*
 	::memcpy(&_mappedBuffer[_currentIndex * _elementSize], buffer, size);
 
 	D3D12_CPU_DESCRIPTOR_HANDLE cpuHandle = GetCpuHandle(_currentIndex);
-
+	
 	_currentIndex++;
 
 	return cpuHandle;

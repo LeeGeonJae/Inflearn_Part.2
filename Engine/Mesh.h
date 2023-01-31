@@ -10,7 +10,7 @@ public:
 	void Render();
 
 	void SetTransform(const Transform& t) { _transform = t; }
-	void SetTaxture(shared_ptr<Texture> tex) { _tex = tex; }
+	void SetTexture(shared_ptr<Texture> tex) { _tex = tex; }
 
 private:
 	void CreateVertexBuffer(const vector<Vertex>& buffer);
